@@ -1,7 +1,7 @@
 # Dr. Hakyll
 
 ```
-$ git clone https://github.com/stackbuilders/dr-hakyll
+$ git clone https://github.com/averagehat/averagehat.github.io
 ```
 
 ```
