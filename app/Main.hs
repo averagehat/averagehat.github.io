@@ -5,7 +5,7 @@ module Main (main) where
 import Data.Monoid (mappend)
 import Hakyll
 
-import Text.Pandoc
+--import Text.Pandoc
 
 main :: IO ()
 main =
