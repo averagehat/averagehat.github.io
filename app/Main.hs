@@ -5,6 +5,8 @@ module Main (main) where
 import Data.Monoid (mappend)
 import Hakyll
 
+import Text.Pandoc
+
 main :: IO ()
 main =
   hakyll $ do
@@ -24,6 +26,10 @@ main =
 
     match "posts/*" $ do
       route (setExtension "html")
+--      compile $ renderPandocWith
+--        defaultHakyllReaderOptions { readerExtensions = githubMarkdownExtensions }
+--        defaultHakyllWriterOptions
+--        =<< getResourceBody
       compile $ pandocCompiler
         >>= loadAndApplyTemplate "templates/post.html" postContext
         >>= saveSnapshot "content"
