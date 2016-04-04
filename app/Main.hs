@@ -5,6 +5,8 @@ module Main (main) where
 import Data.Monoid (mappend)
 import Hakyll
 
+--import Text.Pandoc
+
 main :: IO ()
 main =
   hakyll $ do
@@ -24,6 +26,10 @@ main =
 
     match "posts/*" $ do
       route (setExtension "html")
+--      compile $ renderPandocWith
+--        defaultHakyllReaderOptions { readerExtensions = githubMarkdownExtensions }
+--        defaultHakyllWriterOptions
+--        =<< getResourceBody
       compile $ pandocCompiler
         >>= loadAndApplyTemplate "templates/post.html" postContext
         >>= saveSnapshot "content"
@@ -85,9 +91,9 @@ postContext =
 feedConfiguration :: FeedConfiguration
 feedConfiguration =
   FeedConfiguration
-    { feedTitle = "Dr. Hakyll's Blog"
-    , feedDescription = "Dr. Hakyll's blog"
-    , feedAuthorName = "Dr. Hakyll"
-    , feedAuthorEmail = "dr-hakyll@dr-hakyll.com"
+    { feedTitle = "Pattern | Matched"
+    , feedDescription = "Functional Programming blog"
+    , feedAuthorName = "Michael Panciera"
+    , feedAuthorEmail = "michael.panciera.work@gmail.com"
     , feedRoot = ""
     }
